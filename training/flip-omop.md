@@ -2,10 +2,8 @@
 1. [Overview](#overview)
 2. [Pre-Requisites](#pre-requisites)
 3. [Step-by-Step Guide](#step-by-step-guide)
-    1. [Quick Setup - Docker Compose](#user-action-1)
     2. [Docker Compose](#docker-compose)
-4. [Linked Resources](#linked-resources)
-5. [FAQs](#faqs)
+    3. [Using the Data](#using-the-data)
 
 # Overview
 This document covers the OMOP Database Emulator and how to get it installed on your local environment.
