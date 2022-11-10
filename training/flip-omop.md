@@ -38,7 +38,7 @@ Copy the below in a file called docker-compose.yml
 ```dockercompose
 version: "3.8"
 services:
-omop:
+  omop:
     image: "ghcr.io/answerconsulting/loaded_omop:latest"
     ports:
       - "5432:5432"
