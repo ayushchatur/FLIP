@@ -94,7 +94,7 @@ FLIP implements a microservice-based architecture. The Image Service, Import Ser
 [TODO: List the Lambdas that we have defined and their purpose - dev team]
 
 ## Kubernetes
-All client-side services deployed into the Central Hub are running as Dockerised components in Kubernetes. These are deployed and configured using Terraform scripts for infrastructure and Ansible playbooks for installation and configuration.
+All client-side services deployed into the Secure Enclave are running as Dockerised components in Kubernetes. These are deployed and configured using Terraform scripts for infrastructure and Ansible playbooks for installation and configuration.
 
 ## OMOP
 The OMOP Common Data Model ([https://www.ohdsi.org/data-standardization/](https://www.ohdsi.org/data-standardization/)) describes a common format and representation of data that allows data from different systems that may have hugely different structures of data to be analysed more easily.
