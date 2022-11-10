@@ -45,8 +45,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    volumes:  
-      - ./data:/var/lib/postgresql/data
 
 ```
 Then to start the container from where docker-compose.yml was copied to:
