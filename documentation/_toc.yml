@@ -1,0 +1,4 @@
+format: jb-book
+root: overview.md
+chapters:
+- file: support_docs.md

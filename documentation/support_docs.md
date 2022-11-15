@@ -1,61 +1,8 @@
 # Table of Contents
-- [Overview](#overview)
-- [Architecture](#architecture)
-  - [Summary](#summary)
-- [Central Hub](#central-hub)
-- [Secure Enclave](#secure-enclave)
-- [Components](#components)
-  - [Central Hub API](#central-hub-api)
-  - [Lambdas](#lambdas)
-  - [Kubernetes](#kubernetes)
-  - [OMOP](#omop)
-  - [XNAT](#xnat)
-  - [NVFlare](#nvflare)
-- [Security](#security)
-- [Environments](#environments)
-  - [Local](#local)
-  - [Dev](#dev)
-  - [SIT](#sit)
-  - [UAT](#uat)
-  - [Pre-prod](#pre-prod)
-  - [Production](#production)
-    - [GSTT](#gstt)
-    - [KCH](#kch)
-    - [East Kent](#east-kent)
-    - [Imperial](#imperial)
-    - [UCLH](#uclh)
-- [Process Flow](#process-flow)
-  - [FLIP Workflow](#flip-workflow)
-- [Logging](#logging)
-  - [Elasticsearch](#elasticsearch)
-  - [Cloudwatch](#cloudwatch)
-  - [Kibana Access](#kibana-access)
-  - [Sample Kibana Queries](#sample-kibana-queries)
-- [Data](#data)
-  - [Data Catalogue](#data-catalogue)
-  - [New Data Points](#new-data-points)
-    - [Example](#example)
-- [Deploy](#deploy)
-  - [Octopus](#octopus)
-  - [Terraform](#terraform)
-  - [Ansible](#ansible)
-  - [GitHub](#github)
-- [Restore / Redeploy](#restore-redeploy)
-- [Access](#access)
-  - [How to set up new FLIP Accounts](#how-to-set-up-new-flip-accounts)
-  - [RBAC](#rbac)
-    - [Administrator](#administrator)
-    - [Model Developer](#model-developer)
-- [New Sites](#new-sites)
-  - [Add a new Site to FLIP](#add-a-new-site-to-flip)
-
-
 
 
 
 #
-# Overview
-This Support Documentation aims to provide an overview of the FLIP application, detailing how it is architected and deployed and any information required for further support and development.
 
 # Architecture
 ## Summary

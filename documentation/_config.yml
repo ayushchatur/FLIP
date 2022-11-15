@@ -1,0 +1,5 @@
+title: FLIP documentation
+author: AI Center
+logo: flip-logo.png
+execute:
+  execute_notebooks: force
