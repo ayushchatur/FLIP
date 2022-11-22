@@ -38,7 +38,7 @@ Once unstaged the model developer may amend their cohort query, change the proje
 name & description, edit the project users or delete the project entirely.
 
 
-![Image_Example](../assets/flip/unstage-project.gif)
+![Image_Example](../../assets/flip/unstage-project.gif)
 
 ### Project Approval
 
@@ -50,7 +50,7 @@ approved allows the next stage of model training to commence and triggers the pr
 to retrieve images for the training cycle. The model developer will not be able to
 initiate Training at a Trust that is not marked as approved.
 
-![Image_Example](../assets/flip/approve-project.gif)
+![Image_Example](../../assets/flip/approve-project.gif)
 
 ## Site Management
 
@@ -64,14 +64,14 @@ they will be navigated to the specified URL.
 
 The Site Banner may be enabled or disabled at any time.
 
-![Image_Example](../assets/admin/site-banner.gif)
+![Image_Example](../../assets/admin/site-banner.gif)
 
 ### Deployment Mode
 
 Deployment Mode will disable all non-administrator functions of the FLIP Platform, this allows you to disable the platform
 While a deployment/maintenance on the Trusts Side is occurring. Deployment Mode can be enabled and disabled at any time.
 
-![Image_Example](../assets/admin/deployment-mode.gif)
+![Image_Example](../../assets/admin/deployment-mode.gif)
 
 ## User Management
 
@@ -88,7 +88,7 @@ be prompted to enter the user's email address and choose the role the user will 
 Choose either Admin or Researcher (for model developer) roles. Then select ‘Register User’
 and the user will be sent a one-time password to use when they first login.
 
-![Image_Example](../assets/admin/create-user.gif)
+![Image_Example](../../assets/admin/create-user.gif)
 
 ### Access Control
 
@@ -96,14 +96,14 @@ Administrator roles may disable a user account, this does not delete the account
 can subsequently be re-enabled. To disable a user account select the user from the list of
 users, then select the button with 3 dots and choose the option to ‘Disable User’.
 
-![Image_Example](../assets/admin/user-enable-disable.gif)
+![Image_Example](../../assets/admin/user-enable-disable.gif)
 
 ### Role Management
 
 A user may have there roles changed at any time, select the user from the left hand window and add/remove
 the Administrator/Researcher Role.
 
-![Image_Example](../assets/admin/role-assignment.gif)
+![Image_Example](../../assets/admin/role-assignment.gif)
 
 ### Password Reset
 
@@ -111,4 +111,4 @@ Users can reset their own password, but Administrator roles may perform this for
 requested. To do so, select the user from the list of users, then select the button with 3 dots
 and choose the option to ‘Reset Password’.
 
-![Image_Example](../assets/admin/reset-password.gif)
+![Image_Example](../../assets/admin/reset-password.gif)
