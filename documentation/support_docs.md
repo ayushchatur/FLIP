@@ -384,8 +384,8 @@ Unstructured data ingested by FLIP is processed by MedCAT using NLP to derive ob
 The MedCAT model used is continually undergoing training and FLIP may require an improved version of MedCAT to be deployed in the future. To execute this, the following steps should be followed:
 
  - Build a Docker image of the new MedCAT model (current repository [MedCAT GitHub repo](https://github.com/CogStack/MedCATservice) only has `latest` tags, need to ensure specific version deployed)
- - Store image in Central Hub / Container Registry / cogstacksystems / medcat-service repository
- - Update Ansible deployment scripts (AICentre-Infrastructure-Ansible / roles / cogstack / tasks / main.yaml) to reference new MedCAT model 
+ - Store image in `Central Hub/Container Registry/cogstacksystems/medcat-service` repository
+ - Update Ansible deployment scripts `AICentre-Infrastructure-Ansible/roles/cogstack/tasks/main.yaml` to reference new MedCAT model 
  - Follow the standard Release Procedure Documentation
 
 ## NVFlare Dependency Updates
@@ -394,7 +394,7 @@ As FLIP allows no connection out to the public internet when executing models, t
 
 If these dependencies need to be updated, the following steps should be followed:
 
- - Update the NVFlare client dependency list here: [NVFlare Client GitHub repo](https://github.com/AnswerConsulting/flip-trust-fl-client/blob/62db30b896f647e1902cf9bc22b772b5613ae495/Dockerfile#L24)
+ - Update the NVFlare client dependency list in the `Answer Consulting/flip-trust-fl-client/Dockerfile` repository
  - Follow the standard Release Procedure Documentation
 
 ## OMOP Vocabulary Update
@@ -404,8 +404,8 @@ The vocabulary files used in the OMOP CDM to map from various medical coding sys
  - Browse to the OMOP vocabulary pages [here](https://athena.ohdsi.org/vocabulary/list)
  - Click 'download vocabularies' (if not logged in, create an account and log in to Athena)
  - Wait for the email to advise that the vocabularies have been created
- - Add the new vocabulary files to the AICentre-Infrastructure-Ansible repository at `/roles/postgres/files`
- - Add steps to the `roles/postgres/tasks/main.yaml` script to include the new vocabulary files when constructing the OMOP Postgres image
+ - Add the new vocabulary files to the `AICentre-Infrastructure-Ansible/roles/postgres/files` repository 
+ - Add steps to the `AICentre-Infrastructure-Ansible/roles/postgres/tasks/main.yaml` script to include the new vocabulary files when constructing the OMOP Postgres image
  - Follow the standard Release Procedure Documentation
 
 
