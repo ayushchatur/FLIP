@@ -52,6 +52,12 @@
     - [Model Developer](#model-developer)
 - [New Sites](#new-sites)
   - [Add a new Site to FLIP](#add-a-new-site-to-flip)
+- [Updates](#updates)
+  - [FLIP Components](#flip-components)
+  - [MedCAT Updates](#medcat-updates)
+  - [NVFlare Dependency Updates](#nvflare-dependency-updates)
+  - [OMOP Vocabulary Updates](#omop-vocabulary-update)
+  - [MESH Mailbox Certificate Updates](#mesh-mailbox-certificate-updates)
 
 
 #
@@ -362,3 +368,60 @@ Model Developers have the following permissions:
 ## Add a new site to FLIP
 
 [TODO: devops team notes on adding a new site to FLIP]
+
+# Updates
+
+## FLIP Components
+
+Periodically, the FLIP support team will perform necessary updates to components within the architecture. These may be dictated by any published common vulnerabilities and exposures (CVEs) in third-party dependencies highlighted by dependabot.
+
+The process for regular releases are covered in the FLIP Release Procedure documentation.
+
+## MedCAT Updates
+
+Unstructured data ingested by FLIP is processed by MedCAT using NLP to derive observations, findings and drugs from raw text data.
+
+The MedCAT model used is continually undergoing training and FLIP may require an improved version of MedCAT to be deployed in the future. To execute this, the following steps should be followed:
+
+ - Build a Docker image of the new MedCAT model (current repository [MedCAT GitHub repo](https://github.com/CogStack/MedCATservice) only has `latest` tags, need to ensure specific version deployed)
+ - Store image in Central Hub / Container Registry / cogstacksystems / medcat-service repository
+ - Update Ansible deployment scripts (AICentre-Infrastructure-Ansible / roles / cogstack / tasks / main.yaml) to reference new MedCAT model 
+ - Follow the standard Release Procedure Documentation
+
+## NVFlare Dependency Updates
+
+As FLIP allows no connection out to the public internet when executing models, the NVFlare client provided to model developers contains a curated list of pre-packaged dependencies.
+
+If these dependencies need to be updated, the following steps should be followed:
+
+ - Update the NVFlare client dependency list here: [NVFlare Client GitHub repo](https://github.com/AnswerConsulting/flip-trust-fl-client/blob/62db30b896f647e1902cf9bc22b772b5613ae495/Dockerfile#L24)
+ - Follow the standard Release Procedure Documentation
+
+## OMOP Vocabulary Update
+
+The vocabulary files used in the OMOP CDM to map from various medical coding systems to SNOMED are regularly updated by the OHDSI. To put in place the latest vocabulary updates, the following steps should be followed:
+
+ - Browse to the OMOP vocabulary pages [here](https://athena.ohdsi.org/vocabulary/list)
+ - Click 'download vocabularies' (if not logged in, create an account and log in to Athena)
+ - Wait for the email to advise that the vocabularies have been created
+ - Add the new vocabulary files to the AICentre-Infrastructure-Ansible repository at `/roles/postgres/files`
+ - Add steps to the `roles/postgres/tasks/main.yaml` script to include the new vocabulary files when constructing the OMOP Postgres image
+ - Follow the standard Release Procedure Documentation
+
+
+## MESH Mailbox Certificate Updates
+
+The certificates that the MESH mailboxes use to communicate with the NHSD opt-out service must be renewed every three years. To obtain a new certificate, follow [these steps](https://digital.nhs.uk/services/message-exchange-for-social-care-and-health-mesh/mesh-guidance-hub/certificate-guidance).
+
+Internal details of how to request a mailbox are maintained [here](https://answerconsulting.jira.com/wiki/spaces/AC/pages/3252617234/MESH+API+Mailboxes+Guide+on+making+an+Application).
+
+Details of the existing mailboxes are maintained [here](https://answerconsulting.jira.com/wiki/spaces/AC/pages/3289088005/MESH+APIs+Mailboxes+List).
+
+Once a new mailbox certificate has been obtained, the following steps should be followed:
+
+ - Test the new certificate for access
+ - Replace the Octopus variable holding the original MESH certificate:
+
+![link](../assets/support/octopus_optout_certificate.png)
+
+ - Follow the standard Release Procedure Documentation
