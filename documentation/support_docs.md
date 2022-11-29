@@ -111,7 +111,7 @@ A Common Data Model is needed as Trust datasources will have different formats, 
 The OMOP CDM is implemented as a PostgreSQL database in the Data Centre at each Trust.
 
 ## XNAT
-[XNAT](https://wiki.xnat.org/documentation) is an open-source platform for neuroimaging research and processing. The primary functionality of XNAT is to provide a place to store and control access to neuroimaging data such as DICOM series images. This includes user control, search and retrieval and archiving capabilities.
+[XNAT](https://wiki.xnat.org/documentation) is an open-source platform for imaging research and processing. The primary functionality of XNAT is to provide a place to store and control access to imaging data such as DICOM series images. This includes user control, search and retrieval and archiving capabilities.
 
 XNAT enables quality control procedures and provides secure access to storage of data.
 
