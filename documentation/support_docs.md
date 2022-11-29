@@ -163,10 +163,9 @@ All AWS components in the Central Hub will output their logs to Cloudwatch. This
 
 # 
 # Data
-
 ## Data Catalogue
 
-The [Data Catalogue](https://docs.google.com/spreadsheets/d/1wrFozOs4agLSqG4c0fS2YAsccVqQ4WMZWa2zVGOlJ0g/edit#gid=0) was compiled from the data requirements of the models shortlisted for deployment out to FLIP. Data points were categorised into mandatory and optional - as many of the mandatory requirements as possible have been included in the initial data load, future enhancement to FLIP will include further data points.
+The [Data Catalogue](../assets/artefacts/data_catalogue.xlsx) was compiled from the data requirements of the models shortlisted for deployment out to FLIP. Data points were categorised into mandatory and optional - as many of the mandatory requirements as possible have been included in the initial data load, future enhancement to FLIP will include further data points.
 
 ## New Data Points
 
@@ -352,9 +351,18 @@ The vocabulary files used in the OMOP CDM to map from various medical coding sys
 
 The certificates that the MESH mailboxes use to communicate with the NHSD opt-out service must be renewed every three years. To obtain a new certificate, follow [these steps](https://digital.nhs.uk/services/message-exchange-for-social-care-and-health-mesh/mesh-guidance-hub/certificate-guidance).
 
-Internal details of how to request a mailbox are maintained [here](https://answerconsulting.jira.com/wiki/spaces/AC/pages/3252617234/MESH+API+Mailboxes+Guide+on+making+an+Application).
-
-Details of the existing mailboxes are maintained [here](https://answerconsulting.jira.com/wiki/spaces/AC/pages/3289088005/MESH+APIs+Mailboxes+List).
+| Answer Digital Environment Allocation | Mailbox Type | NHSD MESH environment | Mailbox Name | Common Name | Mailbox ID | Mailbox Owner |
+|---------------------------------------|--------------|-----------------------|-------------|-------------|------------|---------------|
+| Dev | MESH Client | Integration (ptl) | 8JJ22 FLIP PtL Client | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT001 | Answer Digital |
+| Dev | API | Integration (ptl) | 8JJ22 FLIP PtL AIP Solution | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT003 | Answer Digital |
+| Dev | Dormancy | Integration (ptl) | 8JJ22 FLIP PtL Dormancy Testing | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT002 | Answer Digital |
+| SIT | | Integration (ptl) | Answer Digital | SIT-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT011 | Answer Digital |
+| UAT | | Integration (ptl) | AnswerD001 | UAT-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT006 | Answer Digital |
+| PreProd | | Integration (ptl) | Answer Digital | PREPROD-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT009 | Answer Digital |
+| Dev | | Integration (ptl) | | DEV-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT012 | Answer Digital |
+| SIT | | Integration (ptl) | AnswerD002 | SIT-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT007 | Answer Digital |
+| UAT | | Integration (ptl) | AnswerD003 | UAT-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT008 | Answer Digital |
+| PreProd | | Integration (ptl) | Answer Digital | PREPROD-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT010 | Answer Digital |
 
 Once a new mailbox certificate has been obtained, the following steps should be followed:
 
