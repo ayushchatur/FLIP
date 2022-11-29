@@ -118,7 +118,7 @@ XNAT enables quality control procedures and provides secure access to storage of
 XNAT includes a pipeline engine to allow complex workflows with multiple levels of automation. This can include things such as converting DICOM to NIfTI file formats.
 
 ## NVFlare
-The Federated Learning functionality is provided by Nvidia’s [NVFlare](https://github.com/NVIDIA/NVFlare) solution. NVFlare is deployed in a collection of ‘nets’, with a net consisting of a central controller with a worker at each of the Trusts. Each net will have access to a GPU at each of the Trusts to accelerate the model training.
+The Federated Learning functionality is provided by NVIDIA’s [NVFlare](https://github.com/NVIDIA/NVFlare) solution. NVFlare is deployed in a collection of ‘nets’, with a net consisting of a central controller with a worker at each of the Trusts. Each net will have access to a GPU at each of the Trusts to accelerate the model training.
 
 ![link](../assets/support/nvflare_options-nvflare_phase2.drawio.png)
 
