@@ -5,25 +5,11 @@
 - [Central Hub](#central-hub)
 - [Secure Enclave](#secure-enclave)
 - [Components](#components)
-  - [Central Hub API](#central-hub-api)
-  - [Lambdas](#lambdas)
   - [Kubernetes](#kubernetes)
   - [OMOP](#omop)
   - [XNAT](#xnat)
   - [NVFlare](#nvflare)
 - [Security](#security)
-- [Environments](#environments)
-  - [Local](#local)
-  - [Dev](#dev)
-  - [SIT](#sit)
-  - [UAT](#uat)
-  - [Pre-prod](#pre-prod)
-  - [Production](#production)
-    - [GSTT](#gstt)
-    - [KCH](#kch)
-    - [East Kent](#east-kent)
-    - [Imperial](#imperial)
-    - [UCLH](#uclh)
 - [Process Flow](#process-flow)
   - [FLIP Workflow](#flip-workflow)
 - [Logging](#logging)
@@ -50,8 +36,6 @@
   - [RBAC](#rbac)
     - [Administrator](#administrator)
     - [Model Developer](#model-developer)
-- [New Sites](#new-sites)
-  - [Add a new Site to FLIP](#add-a-new-site-to-flip)
 - [Updates](#updates)
   - [FLIP Components](#flip-components)
   - [MedCAT Updates](#medcat-updates)
@@ -92,14 +76,6 @@ As per the security principles, no personally identifying data will leave the Se
 FLIP implements a microservice-based architecture. The Image Service, Import Service and Data Service are deployed as Dockerised microservices, running in Kubernetes, orchestrated by a FLIP API.
 
 # Components
-## Central Hub API
-
-[TODO: List Central Hub API endpoints and their responsibilities - dev team]
-
-## Lambdas
-
-[TODO: List the Lambdas that we have defined and their purpose - dev team]
-
 ## Kubernetes
 All client-side services deployed into the Secure Enclave are running as Dockerised components in Kubernetes. These are deployed and configured using Terraform scripts for infrastructure and Ansible playbooks for installation and configuration.
 
@@ -136,36 +112,6 @@ This VPN tunnel means that all traffic is encrypted with at least AES-256 encryp
 The following is the list of ports required to be opened for the Secure Enclave communication:
 
 ![link](../assets/support/flip_architecture-flip_and_aide_network_architecture_ports.drawio.png)
-
-# Environments
-## Local
-
-[TODO: how to set up and work on FLIP for a developer - dev team]
-
-## Dev
-[TODO: Location (URL) of dev resources and how to access / deploy to - dev team]
-
-## SIT
-[TODO: Location (URL) of SIT resources and how to access / deploy to - dev team]
-
-## UAT
-[TODO: Location (URL) of UAT resources and how to access / deploy to - dev team]
-
-## Pre-prod
-[TODO: Location (URL) of pre-production resources and how to access / deploy to - if this is going to be persistent post-completion - dev team]
-
-## Production (Trust Specific)
-[TODO: How to access and deploy to each of the Trusts - devops]
-
-### GSTT
-
-### KCH
-
-### East Kent
-
-### Imperial
-
-### UCLH
 
 # Process Flow
 ## FLIP workflow
@@ -361,13 +307,6 @@ Model Developers have the following permissions:
 * Add existing users to projects
 * Submit projects for approval
 * Train models
-
-
-# New Sites
-
-## Add a new site to FLIP
-
-[TODO: devops team notes on adding a new site to FLIP]
 
 # Updates
 
