@@ -1,6 +1,47 @@
 # Table of Contents
-
-
+- [Overview](#overview)
+- [Architecture](#architecture)
+  - [Summary](#summary)
+- [Central Hub](#central-hub)
+- [Secure Enclave](#secure-enclave)
+- [Components](#components)
+  - [Kubernetes](#kubernetes)
+  - [OMOP](#omop)
+  - [XNAT](#xnat)
+  - [NVFlare](#nvflare)
+- [Security](#security)
+- [Process Flow](#process-flow)
+  - [FLIP Workflow](#flip-workflow)
+- [Logging](#logging)
+  - [Elasticsearch](#elasticsearch)
+  - [Cloudwatch](#cloudwatch)
+  - [Kibana Access](#kibana-access)
+  - [Sample Kibana Queries](#sample-kibana-queries)
+- [Data](#data)
+  - [Data Catalogue](#data-catalogue)
+  - [New Data Points](#new-data-points)
+    - [Example](#example)
+- [Deploy](#deploy)
+  - [Octopus](#octopus)
+  - [Terraform](#terraform)
+  - [Ansible](#ansible)
+  - [GitHub](#github)
+- [Backup / Restore](#backup--restore)
+  - [Types of Data](#types-of-data)
+  - [Backup](#backup)
+  - [Restore](#restore)
+  - [Disaster Recovery - Failure Scenarios](#disaster-recovery---failure-scenarios)
+- [Access](#access)
+  - [How to set up new FLIP Accounts](#how-to-set-up-new-flip-accounts)
+  - [RBAC](#rbac)
+    - [Administrator](#administrator)
+    - [Model Developer](#model-developer)
+- [Updates](#updates)
+  - [FLIP Components](#flip-components)
+  - [MedCAT Updates](#medcat-updates)
+  - [NVFlare Dependency Updates](#nvflare-dependency-updates)
+  - [OMOP Vocabulary Updates](#omop-vocabulary-update)
+  - [MESH Mailbox Certificate Updates](#mesh-mailbox-certificate-updates)
 
 #
 
@@ -32,33 +73,25 @@ As per the security principles, no personally identifying data will leave the Se
 FLIP implements a microservice-based architecture. The Image Service, Import Service and Data Service are deployed as Dockerised microservices, running in Kubernetes, orchestrated by a FLIP API.
 
 # Components
-## Central Hub API
-
-[TODO: List Central Hub API endpoints and their responsibilities - dev team]
-
-## Lambdas
-
-[TODO: List the Lambdas that we have defined and their purpose - dev team]
-
 ## Kubernetes
-All client-side services deployed into the Central Hub are running as Dockerised components in Kubernetes. These are deployed and configured using Terraform scripts for infrastructure and Ansible playbooks for installation and configuration.
+All client-side services deployed into the Secure Enclave are running as Dockerised components in Kubernetes. These are deployed and configured using Terraform scripts for infrastructure and Ansible playbooks for installation and configuration.
 
 ## OMOP
-The OMOP Common Data Model ([https://www.ohdsi.org/data-standardization/](https://www.ohdsi.org/data-standardization/)) describes a common format and representation of data that allows data from different systems that may have hugely different structures of data to be analysed more easily.
+The [OMOP](https://www.ohdsi.org/data-standardization/) Common Data Model describes a common format and representation of data that allows data from different systems that may have hugely different structures of data to be analysed more easily.
 
 A Common Data Model is needed as Trust datasources will have different formats, structures and representations of data depending on their primary need. To allow for research, assessing and analysing data, a common data model is needed.
 
 The OMOP CDM is implemented as a PostgreSQL database in the Data Centre at each Trust.
 
 ## XNAT
-XNAT is an open-source platform for neuroimaging research and processing. The primary functionality of XNAT is to provide a place to store and control access to neuroimaging data such as DICOM series images. This includes user control, search and retrieval and archiving capabilities.
+[XNAT](https://wiki.xnat.org/documentation) is an open-source platform for imaging research and processing. The primary functionality of XNAT is to provide a place to store and control access to imaging data such as DICOM series images. This includes user control, search and retrieval and archiving capabilities.
 
 XNAT enables quality control procedures and provides secure access to storage of data.
 
 XNAT includes a pipeline engine to allow complex workflows with multiple levels of automation. This can include things such as converting DICOM to NIfTI file formats.
 
 ## NVFlare
-The Federated Learning functionality is provided by Nvidia’s NVFlare solution ([https://github.com/NVIDIA/NVFlare](https://github.com/NVIDIA/NVFlare)). NVFlare is deployed in a collection of ‘nets’, with a net consisting of a central controller with a worker at each of the Trusts. Each net will have access to a GPU at each of the Trusts to accelerate the model training.
+The Federated Learning functionality is provided by NVIDIA’s [NVFlare](https://github.com/NVIDIA/NVFlare) solution. NVFlare is deployed in a collection of ‘nets’, with a net consisting of a central controller with a worker at each of the Trusts. Each net will have access to a GPU at each of the Trusts to accelerate the model training.
 
 ![link](../assets/support/nvflare_options-nvflare_phase2.drawio.png)
 
@@ -76,36 +109,6 @@ This VPN tunnel means that all traffic is encrypted with at least AES-256 encryp
 The following is the list of ports required to be opened for the Secure Enclave communication:
 
 ![link](../assets/support/flip_architecture-flip_and_aide_network_architecture_ports.drawio.png)
-
-# Environments
-## Local
-
-[TODO: how to set up and work on FLIP for a developer - dev team]
-
-## Dev
-[TODO: Location (URL) of dev resources and how to access / deploy to - dev team]
-
-## SIT
-[TODO: Location (URL) of SIT resources and how to access / deploy to - dev team]
-
-## UAT
-[TODO: Location (URL) of UAT resources and how to access / deploy to - dev team]
-
-## Pre-prod
-[TODO: Location (URL) of pre-production resources and how to access / deploy to - if this is going to be persistent post-completion - dev team]
-
-## Production (Trust Specific)
-[TODO: How to access and deploy to each of the Trusts - devops]
-
-### GSTT
-
-### KCH
-
-### East Kent
-
-### Imperial
-
-### UCLH
 
 # Process Flow
 ## FLIP workflow
@@ -157,12 +160,9 @@ All AWS components in the Central Hub will output their logs to Cloudwatch. This
 
 # 
 # Data
-
 ## Data Catalogue
 
-The Data Catalogue was compiled from the data requirements of the models shortlisted for deployment out to FLIP. Data points were categorised into mandatory and optional - as many of the mandatory requirements as possible have been included in the initial data load, future enhancement to FLIP will include further data points.
-
-[Link to Data Catalogue](https://docs.google.com/spreadsheets/d/1wrFozOs4agLSqG4c0fS2YAsccVqQ4WMZWa2zVGOlJ0g/edit#gid=0)
+The [Data Catalogue](../assets/artefacts/data_catalogue.xlsx) was compiled from the data requirements of the models shortlisted for deployment out to FLIP. Data points were categorised into mandatory and optional - as many of the mandatory requirements as possible have been included in the initial data load, future enhancement to FLIP will include further data points.
 
 ## New Data Points
 
@@ -185,51 +185,13 @@ The FHIR message and endpoint in FLIP should be updated to accept the new data p
 
 The mapping within FLIP will be updated to store the new data point in the correct location in OMOP.
 
+| T-FLIP field | OMOP field | Details |
+|--------------|------------|---------|
+| patient_dob | person.year_of_birth, person.month_of_birth, person.day_of_birth | 1-based index for month |
+| patient_dod |  observation.observation_concept_id, observation.observation_date | observation_concept_id = 4265167, observaton_date = DOD |
+| patient_diag | observation.observation_concept_id | SNOMED code relating to the diagnosis |
+| **patient_height** | **person.height** | **Height in centimetres** |
 
-<table>
-  <tr>
-   <td>T-FLIP field
-   </td>
-   <td>OMOP field
-   </td>
-   <td>Details
-   </td>
-  </tr>
-  <tr>
-   <td>patient_dob
-   </td>
-   <td>person.year_of_birth, person.month_of_birth, person.day_of_birth
-   </td>
-   <td>1-based index for month
-   </td>
-  </tr>
-  <tr>
-   <td>patient_dod
-   </td>
-   <td>observation.observation_concept_id,
-<p>
-observation.observation_date
-   </td>
-   <td>observation_concept_id = 4265167, observaton_date = DOD
-   </td>
-  </tr>
-  <tr>
-   <td>patient_diag
-   </td>
-   <td>observation.observation_concept_id
-   </td>
-   <td>SNOMED code relating to the diagnosis
-   </td>
-  </tr>
-  <tr>
-   <td><strong>patient_height</strong>
-   </td>
-   <td><strong>person.height</strong>
-   </td>
-   <td><strong>Height in metres</strong>
-   </td>
-  </tr>
-</table>
 
 
 
@@ -249,12 +211,66 @@ observation.observation_date
 
 ## GitHub
 
-All code related to the FLIP software and infrastructure as code scripts is stored in GitHub repositories.
+All code related to the FLIP software and infrastructure as code scripts is stored in GitHub repositories. These will all be available as open-source repositories within the AI Centre GitHub resource.
 
-[list and note on the various repositories - dev team]
+| Area | Repository | Description |
+|------|------------|-------------|
+| Central Hub | AnswerConsulting/flip-hub-api | Central hub API (lambdas, step functions etc) |
+| Central Hub | AnswerConsulting/flip-hub-fl_wrapper | NVFlare wrapper and controller |
+| Trust | AnswerConsulting/flip-trust-api | On-premise entry point/orchestrator |
+| Trust | AnswerConsulting/flip-trust-data-access-api | Data access layer (cohort query etc) |
+| Trust | AnswerConsulting/flip-trust-data-import-api | Messaging service to import data |
+| Trust | AnswerConsulting/flip-trust-imaging-api | Imaging service talks to XNAT etc |
+| NVFlare | AnswerConsulting/flip-fl-base-application | Base NVFlare application |
+| NVFlare | AnswerConsulting/flip-trust-fl-client | NVFlare client |
+| NVFlare | AnswerConsulting/flip-sample-application | Public sample application for NVFlare |
+| UI | AnswerConsulting/flip-ui | UI |
+| Utilities | AnswerConsulting/flip-utils | Various utilities |
+| Testing | AnswerConsulting/flip-api-tests | End to end tests |
+| Infrastructure | AnswerConsulting/AICentre-Ansible-Shared | Infrastructure and Ansible deployments | 
+| Infrastructure | AnswerConsulting/AICentre-Infastructure-Ansible | Infrastructure and Ansible deployments |
+| Infrastructure | AnswerConsulting/AICentre-Infrastructure | Infrastructure and Ansible deployments |
+| Release | AnswerConsulting/flip-release | Create a release | 
+---
 
-# Restore / Redeploy
-The backup / restore policy for FLIP involves restoring the data from backup once software components have been redeployed. As all data for FLIP is stored on the specific data partition in the FLIP hardware, which is backed up by each individual Trust to the Trust schedule, then following a failure the FLIP components would be redeployed followed by requesting that the Trust restore the data partition from backup.
+# Backup / Restore
+
+## Types of Data
+
+As a system, the FLIP solution handles the following types of data: 
+1. Persistent OMOP Common Data Model data, covering demographic, diagnosis and imaging details 
+2. Transient XNAT cached image data, potentially enriched locally with segmentation, labelling, etc., sourced from Trust PACS.
+3. Log files including event logs and other information generated as part of the operation of the system. 
+
+## Backup
+
+The data partitions for the PostgreSQL (OMOP), XNAT and Elasticsearch (log files) instances are all mounted on the dedicated storage array. This is a RAID 6 PNY appliance with high resilience.
+
+Backup scripts will be run daily to backup each data store to a /backups/ directory on the storage appliance. This should be backed up up by the Trust using their specific backup process, ideally overnight.
+
+![link](../assets/support/flip_aide_architecture-backups.drawio.png)
+
+## Restore
+
+If a failure event requires FLIP restoring from backup, the following steps will be followed:
+
+ - If the FLIP installation on the head nodes needs rebuilding, the Ansible deploy playbooks will be run to redeploy out the software components of FLIP
+ - The most recent storage appliance backup will be restored by the Trust
+ - Data backups will be restored
+ - Smoke test from AD to confirm full functionality restored
+
+
+## Disaster Recovery - Failure Scenarios
+
+
+| Failure Point | Remedial Action | Recovery Point |
+|---------------|-----------------|----------------|
+| Storage array drive failure - one disk | 1. Disk replacement | Immediate, no data loss |
+| Storage array drive failure - multiple disks | 1. Disk replacement<br />2. Transfer of backup archive to storage array<br />3. Restore data from backup | Last backup taken |
+| Head node failure | 1. Head node replacement<br />2. Reinstallation of FLIP from IAC scripts | Immediate, no data loss
+| Complete data centre failure | 1. Installation of new hardware<br />2. Reinstallation of FLIP from IAC scripts<br />3. Transfer of backup archive to storage array<br />4. Restore data from backup | Last backup taken |
+| Data corruption | 1. Transfer of backup archive to storage array<br />2. Restore data from backup | Last backup taken |
+---
 
 # Access
 ## How to set up new FLIP accounts
@@ -288,7 +304,68 @@ Model Developers have the following permissions:
 * Submit projects for approval
 * Train models
 
+# Updates
 
-# New Sites
+## FLIP Components
 
-## Add a new site to FLIP
+Periodically, the FLIP support team will perform necessary updates to components within the architecture. These may be dictated by any published common vulnerabilities and exposures (CVEs) in third-party dependencies highlighted by dependabot.
+
+The process for regular releases are covered in the FLIP Release Procedure documentation.
+
+## MedCAT Updates
+
+Unstructured data ingested by FLIP is processed by MedCAT using NLP to derive observations, findings and drugs from raw text data.
+
+The MedCAT model used is continually undergoing training and FLIP may require an improved version of MedCAT to be deployed in the future. To execute this, the following steps should be followed:
+
+ - Build a Docker image of the new MedCAT model (current repository [MedCAT GitHub repo](https://github.com/CogStack/MedCATservice) only has `latest` tags, need to ensure specific version deployed)
+ - Store image in `Central Hub/Container Registry/cogstacksystems/medcat-service` repository
+ - Update Ansible deployment scripts `AICentre-Infrastructure-Ansible/roles/cogstack/tasks/main.yaml` to reference new MedCAT model 
+ - Follow the standard Release Procedure Documentation
+
+## NVFlare Dependency Updates
+
+As FLIP allows no connection out to the public internet when executing models, the NVFlare client provided to model developers contains a curated list of pre-packaged dependencies.
+
+If these dependencies need to be updated, the following steps should be followed:
+
+ - Update the NVFlare client dependency list in the `Answer Consulting/flip-trust-fl-client/Dockerfile` repository
+ - Follow the standard Release Procedure Documentation
+
+## OMOP Vocabulary Update
+
+The vocabulary files used in the OMOP CDM to map from various medical coding systems to SNOMED are regularly updated by the OHDSI. To put in place the latest vocabulary updates, the following steps should be followed:
+
+ - Browse to the OMOP vocabulary pages [here](https://athena.ohdsi.org/vocabulary/list)
+ - Click 'download vocabularies' (if not logged in, create an account and log in to Athena)
+ - Wait for the email to advise that the vocabularies have been created
+ - Add the new vocabulary files to the `AICentre-Infrastructure-Ansible/roles/postgres/files` repository 
+ - Add steps to the `AICentre-Infrastructure-Ansible/roles/postgres/tasks/main.yaml` script to include the new vocabulary files when constructing the OMOP Postgres image
+ - Follow the standard Release Procedure Documentation
+
+
+## MESH Mailbox Certificate Updates
+
+The certificates that the MESH mailboxes use to communicate with the NHSD opt-out service must be renewed every three years. To obtain a new certificate, follow [these steps](https://digital.nhs.uk/services/message-exchange-for-social-care-and-health-mesh/mesh-guidance-hub/certificate-guidance).
+
+| Answer Digital Environment Allocation | Mailbox Type | NHSD MESH environment | Mailbox Name | Common Name | Mailbox ID | Mailbox Owner |
+|---------------------------------------|--------------|-----------------------|-------------|-------------|------------|---------------|
+| Dev | MESH Client | Integration (ptl) | 8JJ22 FLIP PtL Client | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT001 | Answer Digital |
+| Dev | API | Integration (ptl) | 8JJ22 FLIP PtL AIP Solution | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT003 | Answer Digital |
+| Dev | Dormancy | Integration (ptl) | 8JJ22 FLIP PtL Dormancy Testing | ANSWER8JJ22.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT002 | Answer Digital |
+| SIT | | Integration (ptl) | Answer Digital | SIT-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT011 | Answer Digital |
+| UAT | | Integration (ptl) | AnswerD001 | UAT-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT006 | Answer Digital |
+| PreProd | | Integration (ptl) | Answer Digital | PREPROD-KCH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT009 | Answer Digital |
+| Dev | | Integration (ptl) | | DEV-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT012 | Answer Digital |
+| SIT | | Integration (ptl) | AnswerD002 | SIT-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT007 | Answer Digital |
+| UAT | | Integration (ptl) | AnswerD003 | UAT-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT008 | Answer Digital |
+| PreProd | | Integration (ptl) | Answer Digital | PREPROD-UCLH.8JJ22.api.mesh-client.nhs.uk | 8JJ22OT010 | Answer Digital |
+
+Once a new mailbox certificate has been obtained, the following steps should be followed:
+
+ - Test the new certificate for access
+ - Replace the Octopus variable holding the original MESH certificate:
+
+![link](../assets/support/octopus_optout_certificate.png)
+
+ - Follow the standard Release Procedure Documentation
