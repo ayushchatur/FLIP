@@ -40,7 +40,7 @@ one-time password. These will have been provided to you by the administrator of 
 system, if you are unsure of your login credentials please contact your FLIP system
 administrator
 
-![Image_Example](../assets/flip/flip-first-login.gif)
+![Image_Example](../../assets/flip/flip-first-login.gif)
 
 ## Projects
 The typical project flow involves the creation of a project, running a cohort query, staging
@@ -54,9 +54,9 @@ participate in.
 
 *The first step of the research process is to create a project. Once created, you’ll be able to
 add users to the project, perform a cohort query for your project and seek approval for the
-model training. In the top right corner of the projects page select ‘Create Project’*
+model training. In the top right corner of the project page, select ‘Create Project’*
 
-![Image_Example](../assets/flip/create-project.gif)
+![Image_Example](../../assets/flip/create-project.gif)
 
 ### Edit Project
 
@@ -75,14 +75,14 @@ as Editing project. *Note*: You must be either the owner of the project or an ad
 Any running training sessions will be deleted and no longer accessible.
 The Images associated with the project will be deleted from XNAT and the project will no longer be visible within XNAT.
 
-![Image_Example](../assets/flip/delete-project.gif)
+![Image_Example](../../assets/flip/delete-project.gif)
 
 ### Project List
 
 All projects will be available from the home page of FLIP the project dashboard you can use filters to list only projects owned by
 you or filter by the project name / description
 
-![Image_Example](../assets/flip/filter-project.gif)
+![Image_Example](../../assets/flip/filter-project.gif)
 
 ### Cohort
 
@@ -104,7 +104,7 @@ JOIN omop.concept c ON p.gender_concept_id = c.concept_id
 WHERE year_of_birth < 1980
 ```
 
-![Image_Example](../assets/flip/cohort-query.gif)
+![Image_Example](../../assets/flip/cohort-query.gif)
 
 ### Edit Cohort
 
@@ -123,7 +123,7 @@ If, after staging, you need to amend your cohort query, contact your FLIP admini
 Providing the project has not yet been approved they will be able to un-stage the project
 you will be able to amend the cohort query and stage the project again.
 
-![Image_Example](../assets/flip/stage-project.gif)
+![Image_Example](../../assets/flip/stage-project.gif)
 
 ### Imaging Status
 
@@ -131,7 +131,7 @@ Once approved projects will be created on XNAT and the importing of accession nu
 The Imaging Status Modal allows you to view the progress of which Images have imported. Including what Trusts projects have been created on
 as well as how many Images have been imported from the underlying PACS system into XNAT.
 
-![Image_Example](../assets/flip/imaging-status.gif)
+![Image_Example](../../assets/flip/imaging-status.gif)
 
 ## Models
 
@@ -143,21 +143,21 @@ Once the project has been approved, you can begin creating models to facilitate 
 From within the project page select ‘Create Model’. You’ll be presented with the following where you can enter a name and brief description
 for the model.
 
-![Image_Example](../assets/flip/create-model.gif)
+![Image_Example](../../assets/flip/create-model.gif)
 
 ### Edit Model
 
 You may edit the model by selecting the ‘Edit Model’ button. You may change the name and description
 until training has been initiated.
 
-![Image_Example](../assets/flip/edit-model.gif)
+![Image_Example](../../assets/flip/edit-model.gif)
 
 ### Delete Model
 
 You may delete the model by selecting the 'Edit Model' button, this action may be performed at any time.
 Doing so while a model is training will Stop any current training.
 
-![Image_Example](../assets/flip/delete-model.gif)
+![Image_Example](../../assets/flip/delete-model.gif)
 
 ### Files
 
@@ -185,7 +185,7 @@ them, an example of this is in the section below.
 
 Prior to commencing training you may also upload a config.json file to control a number
 of variables. The config file will define variables that are used during FLIP training (e.g.
-GLOBAL_ROUNDS, LOCAL_ROUNDS etc in the attached example file).
+GLOBAL_ROUNDS, LOCAL_ROUNDS, etc. in the attached example file).
 An example of a config file below.
 
 ```json
@@ -210,7 +210,7 @@ An example of a config file below.
 
 The content of a file may be viewed at any time. This allows you to check the contents of a file that has been uploaded.
 
-![Image_Example](../assets/flip/manage-files.gif)
+![Image_Example](../../assets/flip/manage-files.gif)
 
 #### Delete Files
 
@@ -243,14 +243,14 @@ the ‘Initiate Training’ button.
 
 Having initiated the training, the status bar will provide a status of training progress.
 
-On the right hand side of the page a window shows
+On the right-hand side of the page a window shows
 detailed status updates with date & time stamps
 against each activity.
 The status messages show the scheduling activities,
 including queuing, ‘net’ assignment, training in
 progress and training complete.
 
-![Image_Example](../assets/flip/initiate-training.gif)
+![Image_Example](../../assets/flip/initiate-training.gif)
 
 #### Stop Training
 
@@ -260,7 +260,7 @@ so when the ‘Training Started’ stage is in progress by selecting the ‘Acti
 selecting ‘Stop Training’. When training has been stopped the progress bar will show
 which stage the process was stopped at and appear like this:
 
-![Image_Example](../assets/flip/stop-training.gif)
+![Image_Example](../../assets/flip/stop-training.gif)
 
 If the training has already completed the ‘Stop Training’ option will be greyed out (see
 below).
@@ -270,7 +270,7 @@ below).
 Once training has completed, you may then download the results. Select Actions and
 ‘Download Results’, a zip file will then be downloaded to your local machine.
 
-![Image_Example](../assets/flip/download-results.gif)
+![Image_Example](../../assets/flip/download-results.gif)
 
 #### Metrics
 
@@ -278,4 +278,4 @@ During the training cycle any metrics specified by the model developer, such as 
 function, average score are displayed during and following the training cycle. Hovering
 over the graphs at various points will display the values.
 
-![Image_Example](../assets/flip/metrics.gif)
+![Image_Example](../../assets/flip/metrics.gif)

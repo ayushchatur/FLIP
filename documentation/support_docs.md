@@ -43,10 +43,7 @@
   - [OMOP Vocabulary Updates](#omop-vocabulary-update)
   - [MESH Mailbox Certificate Updates](#mesh-mailbox-certificate-updates)
 
-
 #
-# Overview
-This Support Documentation aims to provide an overview of the FLIP application, detailing how it is architected and deployed and any information required for further support and development.
 
 # Architecture
 ## Summary
