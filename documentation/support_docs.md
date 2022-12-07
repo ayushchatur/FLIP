@@ -21,11 +21,7 @@
   - [Data Catalogue](#data-catalogue)
   - [New Data Points](#new-data-points)
     - [Example](#example)
-- [Deploy](#deploy)
-  - [Octopus](#octopus)
-  - [Terraform](#terraform)
-  - [Ansible](#ansible)
-  - [GitHub](#github)
+- [Code Repositories](#code-repositories)
 - [Backup / Restore](#backup--restore)
   - [Types of Data](#types-of-data)
   - [Backup](#backup)
@@ -196,20 +192,7 @@ The mapping within FLIP will be updated to store the new data point in the corre
 
 
 # 
-# Deploy
-## Octopus
-
-[notes on Octopus deployment of FLIP - dev team]
-
-## Terraform
-
-[notes on Terraform deployment of FLIP - devops team]
-
-## Ansible
-
-[notes on Ansible deployment of FLIP - devops team]
-
-## GitHub
+# Code Repositories
 
 All code related to the FLIP software and infrastructure as code scripts is stored in GitHub repositories. These will all be available as open-source repositories within the AI Centre GitHub resource.
 
