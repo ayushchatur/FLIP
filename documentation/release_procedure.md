@@ -138,7 +138,7 @@ Issues will be added to the RCA list and shared with the AI Centre and Trusts as
 
 ### SIT Process
 
-All releases will go through comprehensive automated and manual functional and non-functional testing before being deployed to UAT. The entire automated and manual system testing processes can be viewed in the AI Centre Test Strategy.
+All releases will go through comprehensive automated and manual functional and non-functional testing before being deployed to UAT. The entire automated and manual system testing processes can be viewed in the [AI Centre Test Strategy](./test_strategy.md).
 
 - SIT evidence will be attached to stories and shared via Jira with Product Owners and UAT Testers.
 - Features will not be released to UAT if they do not pass SIT or have outstanding Sev 1 issues.
