@@ -29,7 +29,7 @@
 
 # Executive Summary
 
-Answer Digital will manage releases to all environments including Production. The Production release cadence will directly align with the product roadmaps giving clear visibility when a new version will be available to the Trusts. Early sight of production releases will enable Trusts to plan accordingly and for system documentation to be updated. 
+Answer Digital (AD) will manage releases to all environments including Production. The Production release cadence will directly align with the product roadmaps giving clear visibility when a new version will be available to the Trusts. Early sight of production releases will enable Trusts to plan accordingly and for system documentation to be updated. 
 
 In addition to planned production releases, features will be deployed to UAT for iterative user testing, feedback and sign off. 
 
