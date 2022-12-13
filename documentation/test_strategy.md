@@ -142,7 +142,7 @@ Database testing will involve checking the data integrity of any databases for b
 - Data transformation validation
 - Stored procedure and view testing
 - Manual verification of any PII masking
-- Non-Functional inc. Security and Benchmark testing
+- Non-Functional, incuding Security and Benchmark testing
 
 ## API Testing
 
