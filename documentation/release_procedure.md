@@ -54,7 +54,7 @@ Planned production releases are aligned to the FLIP product roadmap in order to 
 - Release schedules will be shared with the consortium Trusts and AI Centre.
 - Releases will be created in Jira including all tickets for the Planned production release so the entire scope of change can be viewed.
 - Full release notes will be published prior to a production release.
-- All UAT activities must be fully complete prior to a release with Product Owner sign off.
+- All UAT activities must be fully complete prior to a release with Product Owner (PO) sign off.
 - Release will take place at a time that will keep user impact to a minimum. Exact times will be arranged closer to the time of release subject to availability.
 
 ### Unplanned (Hotfix) Releases
