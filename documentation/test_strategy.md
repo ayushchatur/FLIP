@@ -74,8 +74,8 @@ King’s College London (KCL) and Guy’s and St Thomas’ NHS Foundation Trust 
 
 The programme is split into the following components:
 
-- **AI Deployment Engine (AIDE)**: enabling NHS Trusts to deploy AI products in clinical practice.
-- **Federated Learning and Interoperability Platform (FLIP)**: enabling NHS Trusts to make their data accessible, without compromising patient confidentiality to develop AI tools.
+- **AIDE**: enabling NHS Trusts to deploy AI products in clinical practice.
+- **FLIP**: enabling NHS Trusts to make their data accessible, without compromising patient confidentiality to develop AI tools.
 - **Secure Local Enclaves**: putting in place in each partner trust the infrastructure required to build a secure data enclave to enable algorithms to train securely.
 
 #
