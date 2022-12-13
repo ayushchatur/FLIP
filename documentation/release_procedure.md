@@ -172,7 +172,7 @@ Feature flags will be implemented where appropriate to enable continuous deploym
 
 | Environment | Use | Deployment Criteria |
 |-------------|-----|---------------------|
-| Dev (Cloud) | A volatile environment that is used by Answer developers. Since much of the architecture is difficult to simulate locally, this ecosystem is required to facilitate development of new functionality. | N/A |
+| Dev (Cloud) | A volatile environment that is used by AD developers. Since much of the architecture is difficult to simulate locally, this ecosystem is required to facilitate development of new functionality. | N/A |
 | SIT (Cloud) | A stable environment to enable the testers to assure the quality of the latest release candidates. | - Dev is complete<br/>- Automation tests have passed<br />- Automated regression tests have passed |
 | UAT (Cloud) | A stable environment to allow the primary stakeholders, product owners and users to test the latest release candidates. This environment will be running full time to enable iterative user testing and new feature demos. |- SIT has been fully signed off by AD<br />- SIT results shared with PO<br />- Training documentation has been updated and shared<br />- Release notes have been shared with PO |
 | Pre-Prod (Cloud) | An environment matching the production hardware as closely as possible, allowing AIDE and FLIP to be tested on the same infrastructure. This environment will be running full time to emulate the production environment. Environment will also be used for training and platform demo purposes. | - UAT has been fully signed off by PO<br />- Full production release notes have been shared with all stakeholders |
