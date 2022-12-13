@@ -70,7 +70,7 @@ This document will continue to be updated throughout the lifetime of the project
 
 The London Medical Imaging & AI Centre for Value Based Healthcare have commissioned an AI programme involving a consortium of 10 NHS Trusts, with the objective of increasing efficiency and improving patients’ outcomes through advanced diagnostics and identification of personalised treatments.
 
-King’s College London and Guy’s and St Thomas’ NHS Foundation Trust are leading the consortium to develop an artificial intelligence based Federated Learning and Interoperability Platform (FLIP) for diagnostic imaging, and an Artificial Intelligence Deployment Engine (AIDE) for real world AI clinical deployment. This platform will provide the toolset for the AI Centre, enabling researchers and clinicians to transform and deploy advanced diagnostic pathways.
+King’s College London (KCL) and Guy’s and St Thomas’ NHS Foundation Trust (GSTT) are leading the consortium to develop an artificial intelligence (AI) based Federated Learning and Interoperability Platform (FLIP), and AIDE, an AI deployment engine, for real world AI clinical deployment. These platforms will provide the toolset for the AI Centre to enable researchers and clinicians to transform and deploy advanced diagnostic pathways.
 
 The programme is split into the following components:
 
